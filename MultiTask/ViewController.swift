@@ -90,7 +90,33 @@ class ViewController: UIViewController {
         }
     }
     
-
+    @IBAction func removeOne(_ sender: UIButton) {
+        var text = currentLabel.text!
+        if(text != "" && operation != 14 && text != "+" && text != "-" && text != "/" && text != "x") {
+            text = String(text.dropLast())
+            if(text == ""){
+                currentLabel.text = ""
+                numberOnScreen = 0
+            } else {
+                currentLabel.text = text
+                numberOnScreen = Double(currentLabel.text!)!
+            }
+        }
+    }
+    
+    @IBAction func decimalPlace(_ sender: UIButton) {
+        var text = currentLabel.text!
+        if(text != "" && operation != 14 && text != "+" && text != "-" && text != "/" && text != "x") {
+            text += "."
+            currentLabel.text = text
+            text += "0"
+            numberOnScreen = Double(text)!
+            }
+        }
+    
+    //////////////////////gorivo
+    
+    
 
 }
 
