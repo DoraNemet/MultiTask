@@ -11,10 +11,8 @@ import CoreData
 
 class ViewControllerRed: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
-    
     @IBOutlet weak var tableView: UITableView!
-    
-    var itemName: [NSManagedObject] = []
+    var noteItem: [NSManagedObject] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -23,16 +21,14 @@ class ViewControllerRed: UIViewController, UITextFieldDelegate, UITableViewDeleg
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
         
         do{
-            itemName = try context.fetch(fetchRequest)
+            noteItem = try context.fetch(fetchRequest)
         } catch {
-            print ("Error in loading data")
+            print ("Error loading data")
         }
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -41,50 +37,51 @@ class ViewControllerRed: UIViewController, UITextFieldDelegate, UITableViewDeleg
         // Dispose of any resources that can be recreated.
     }
 
-    var titleTextField: UITextField!
+    var textField: UITextField!
     
-    func titleTextField(textField: UITextField!) {
-        titleTextField = textField
-        titleTextField.placeholder = "note"
+    func titleTextField(mTextField: UITextField!) {
+        textField = mTextField
+        textField.placeholder = "Bilješka"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemName.count
+        return noteItem.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let title = itemName[indexPath.row]
+        let note = noteItem[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = title.value(forKey: "name") as? String
+        cell.textLabel?.text = note.value(forKey: "note") as? String
         return cell
     }
     
-
     @IBAction func addNote(_ sender: UIButton) {
-        
-        let alert = UIAlertController(title: "Add your note", message: "Add your item name", preferredStyle: .alert)
+        let popup = UIAlertController(title: "Dodaj bilješku", message: "", preferredStyle: .alert)
         let addAction = UIAlertAction(title: "Save", style: .default, handler: self.save)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alert.addAction(addAction)
-        alert.addAction(cancelAction)
-        alert.addTextField(configurationHandler: titleTextField)
-        self.present(alert, animated: true, completion: nil)
+        popup.addAction(addAction)
+        popup.addAction(cancelAction)
+        popup.addTextField(configurationHandler: titleTextField)
+        self.present(popup, animated: true, completion: nil)
     }
     
     func save(alert : UIAlertAction){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)
-        let theTask = NSManagedObject(entity: entity!, insertInto: context)
-        theTask.setValue(titleTextField.text, forKey: "name")
-        
-        do{
-            try context.save()
-            itemName.append(theTask)
-        } catch {
-            print ("Error in saving")
+        if(textField.text != ""){
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)
+            let theTask = NSManagedObject(entity: entity!, insertInto: context)
+            theTask.setValue(textField.text, forKey: "note")
+            
+            do{
+                try context.save()
+                noteItem.append(theTask)
+            } catch {
+                print ("Error saving")
+            }
+            
+            self.tableView.reloadData()
         }
-        self.tableView.reloadData()
     }
     
     
@@ -92,15 +89,16 @@ class ViewControllerRed: UIViewController, UITextFieldDelegate, UITableViewDeleg
         if editingStyle == UITableViewCellEditingStyle.delete{
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let context = appDelegate.persistentContainer.viewContext
-            context.delete(itemName[indexPath.row])
-            itemName.remove(at: indexPath.row)
+            context.delete(noteItem[indexPath.row])
+            noteItem.remove(at: indexPath.row)
         
-        do{
-            try context.save()
-        } catch {
-            print ("Error in deleting")
-        }
-        self.tableView.reloadData()
+            do{
+                try context.save()
+            } catch {
+                print ("Error deleting")
+            }
+            
+            self.tableView.reloadData()
         }
     }
     
