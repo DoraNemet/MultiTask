@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E4A32575210330AF00D87783 /* ViewControllerRed.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A32574210330AF00D87783 /* ViewControllerRed.swift */; };
+		E4A3257A210367E600D87783 /* multiTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4A32578210367E600D87783 /* multiTask.xcdatamodeld */; };
 		E4ADAD1320FF7FFD005D033D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ADAD1220FF7FFD005D033D /* AppDelegate.swift */; };
 		E4ADAD1520FF7FFD005D033D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ADAD1420FF7FFD005D033D /* ViewController.swift */; };
 		E4ADAD1820FF7FFD005D033D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4ADAD1620FF7FFD005D033D /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		E4A32574210330AF00D87783 /* ViewControllerRed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRed.swift; sourceTree = "<group>"; };
+		E4A32579210367E600D87783 /* multiTask.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = multiTask.xcdatamodel; sourceTree = "<group>"; };
 		E4ADAD0F20FF7FFD005D033D /* MultiTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4ADAD1220FF7FFD005D033D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4ADAD1420FF7FFD005D033D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				E4ADAD1220FF7FFD005D033D /* AppDelegate.swift */,
 				E4ADAD1420FF7FFD005D033D /* ViewController.swift */,
 				E4ADAD1620FF7FFD005D033D /* Main.storyboard */,
+				E4A32578210367E600D87783 /* multiTask.xcdatamodeld */,
 				E4A32574210330AF00D87783 /* ViewControllerRed.swift */,
 				E4FC050F21032FD900644A32 /* ViewControllerBlue.swift */,
 				E4ADAD1920FF7FFE005D033D /* Assets.xcassets */,
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4A3257A210367E600D87783 /* multiTask.xcdatamodeld in Sources */,
 				E4A32575210330AF00D87783 /* ViewControllerRed.swift in Sources */,
 				E4ADAD1520FF7FFD005D033D /* ViewController.swift in Sources */,
 				E4ADAD1320FF7FFD005D033D /* AppDelegate.swift in Sources */,
@@ -588,6 +592,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E4A32578210367E600D87783 /* multiTask.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E4A32579210367E600D87783 /* multiTask.xcdatamodel */,
+			);
+			currentVersion = E4A32579210367E600D87783 /* multiTask.xcdatamodel */;
+			path = multiTask.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E4ADAD0720FF7FFD005D033D /* Project object */;
 }
