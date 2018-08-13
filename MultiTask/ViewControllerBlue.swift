@@ -46,12 +46,12 @@ class ViewControllerBlue: UIViewController {
     
     func calculateOthers() {
         if(fuelPriceNumber != 0 && fuelConsumptionNumber != 0 && distanceNumber != 0) {
-            tripPriceNumber = distanceNumber * (fuelConsumptionNumber / 100) * fuelPriceNumber
+            tripPriceNumber = ((distanceNumber * (fuelConsumptionNumber / 100) * fuelPriceNumber) * 100).rounded()/100
             tripPrice.text = String(tripPriceNumber)
         }
         
         if(fuelConsumptionNumber != 0 && distanceNumber != 0) {
-            fuelUsedNumber = distanceNumber * (fuelConsumptionNumber / 100)
+            fuelUsedNumber = (distanceNumber * (fuelConsumptionNumber / 100) * 100).rounded()/100
             fuelUsed.text = String(fuelUsedNumber)
         }
         
@@ -100,16 +100,4 @@ class ViewControllerBlue: UIViewController {
         self.tripPrice.resignFirstResponder()
         self.fuelUsed.resignFirstResponder()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
 }
