@@ -161,7 +161,7 @@
                                     <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="decimalPlace:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7do-by-ZwZ"/>
+                                    <action selector="numbers:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5UM-hs-gX1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfF-dg-WYx">
@@ -318,7 +318,7 @@
                                     <color key="titleColor" red="0.47450980392156861" green="0.47450980392156861" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TgD-QI-364"/>
+                                    <action selector="AC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GYn-Ql-vO5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5t-Ls-oaH">
@@ -372,7 +372,7 @@
                                     <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KtU-Ya-4Jo"/>
+                                    <action selector="equals:" destination="BYZ-38-t0r" eventType="touchUpInside" id="evI-Tt-QVt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -590,6 +590,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="Zhu-O6-qK1"/>
         <segue reference="pSf-DT-ExR"/>
-        <segue reference="GUV-Zj-HUI"/>
+        <segue reference="vOz-AS-pFp"/>
     </inferredMetricsTieBreakers>
 </document>

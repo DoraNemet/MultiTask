@@ -9,11 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
+      
+    var va:Double = 0
+    var vb:Double = 0
     
-    var numberOnScreen:Double = 0
-    var previousNumber:Double = 0
-    var preformingOperation = false
-    var operation = 0
+    var display:String = ""
+    var currentOperator:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,89 +35,95 @@ class ViewController: UIViewController {
     @IBOutlet weak var lastNumberLabel: UILabel!
     
     @IBAction func numbers(_ sender: UIButton) {
-        if operation == 14 {
-            lastNumberLabel.text = currentLabel.text
-            currentLabel.text = ""
-            operation = 0
-            preformingOperation = false
+        if currentOperator == "=" {
+            currentOperator =  ""
+            va = 0.0
+            vb = 0.0
+            lastNumberLabel.text = ""
         }
-        if preformingOperation == true {
-            currentLabel.text = String(sender.tag)
-            numberOnScreen = Double(currentLabel.text!)!
-            preformingOperation = false
-        } else {
-            currentLabel.text = currentLabel.text! + String(sender.tag)
-            numberOnScreen = Double(currentLabel.text!)!
+        display += String(sender.tag)
+        currentLabel.text = display
+    }
+    
+    @IBAction func equals(_ sender: UIButton) {
+        if (currentOperator != "") {
+            vb = Double(currentLabel.text!)!
+            
+            if (currentOperator == "+") {
+                va = va + vb
+            } else if (currentOperator == "-") {
+                va = va - vb
+            } else if (currentOperator == "x") {
+                va = va * vb
+            } else {
+                va = va / vb
+            }
+            lastNumberLabel.text = String(va)
+            currentOperator = "="
+            currentLabel.text = ""
+            vb = 0.0
+            display = ""
         }
     }
     
     @IBAction func buttons(_ sender: UIButton) {
-        if sender.tag == 14 { // =
-            lastNumberLabel.text = currentLabel.text
-            if operation == 10 {
-                currentLabel.text = String(previousNumber / numberOnScreen)
-            } else if operation == 11 {
-                currentLabel.text = String(previousNumber * numberOnScreen)
-            } else if operation == 12 {
-                currentLabel.text = String(previousNumber - numberOnScreen)
-            } else if operation == 13 {
-                currentLabel.text = String(previousNumber + numberOnScreen)
-            }
-            operation = 14
-        } else if sender.tag == 15 { //clear
-            lastNumberLabel.text = ""
-            currentLabel.text = ""
-            numberOnScreen = 0
-            preformingOperation = false
-            previousNumber = 0
-            operation = 0
-        } else if currentLabel.text != "" {
-            if  currentLabel.text != "/" && currentLabel.text != "+" && currentLabel.text != "x" && currentLabel.text != "-" {
-                previousNumber = Double(currentLabel.text!)!
-                lastNumberLabel.text = currentLabel.text
-            }
+        display = "";
+        var b = ""
+        
+        if(sender.tag == 10){
+            b = "/"
+        } else if(sender.tag == 11){
+            b = "x"
+        } else if(sender.tag == 12){
+            b = "-"
+        } else if(sender.tag == 13){
+            b = "+"
+        }
+        
+         if (currentOperator != "" && currentOperator != "=") {
             
-            if sender.tag == 10 { // /
-                currentLabel.text = "/"
-            } else if sender.tag == 11 { // x
-                currentLabel.text = "x"
-            } else if sender.tag == 12 {// -
-                currentLabel.text = "-"
-            } else if sender.tag == 13 {// +
-                currentLabel.text = "+"
+            vb = Double(currentLabel.text!)!
+            
+            if (currentOperator == "+") {
+                va = va + vb
+            } else if (currentOperator == "-") {
+                va = va - vb
+            } else if (currentOperator == "x") {
+                va = va * vb
+            } else {
+                va = va / vb
             }
-            operation = sender.tag
-            preformingOperation = true;
+            lastNumberLabel.text = String(va)
+            currentOperator = b
+            currentLabel.text = currentOperator
+            
+        } else {
+            currentOperator = b
+            if (lastNumberLabel.text != "") {
+                va = Double(lastNumberLabel.text!)!
+            } else {
+                va = Double(currentLabel.text!)!
+            }
+            currentLabel.text = currentOperator
+            lastNumberLabel.text = String(va)
         }
     }
     
     @IBAction func removeOne(_ sender: UIButton) {
-        var text = currentLabel.text!
-        if(text != "" && operation != 14 && text != "+" && text != "-" && text != "/" && text != "x") {
-            text = String(text.dropLast())
-            if(text == ""){
-                currentLabel.text = ""
-                numberOnScreen = 0
-            } else {
-                currentLabel.text = text
-                numberOnScreen = Double(currentLabel.text!)!
-            }
+        let textC:String = String(currentLabel.text!);
+        if (textC != "") {
+            display = String(textC.dropLast())
+            currentLabel.text = display
         }
     }
-    
-    @IBAction func decimalPlace(_ sender: UIButton) {
-        var text = currentLabel.text!
-        if(text != "" && operation != 14 && text != "+" && text != "-" && text != "/" && text != "x") {
-            text += "."
-            currentLabel.text = text
-            text += "0"
-            numberOnScreen = Double(text)!
-            }
-        }
-    
-    //////////////////////gorivo
-    
-    
 
+    @IBAction func AC(_ sender: UIButton) {
+        display = ""
+        currentOperator = ""
+        va = 0.0
+        vb = 0.0
+        currentLabel.text = ""
+        lastNumberLabel.text = ""
+        currentLabel.text = display
+    }
 }
-
