@@ -67,7 +67,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func buttons(_ sender: UIButton) {
-        display = "";
+        
         var b = ""
         
         if(sender.tag == 10){
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
         }
         
          if (currentOperator != "" && currentOperator != "=") {
-            
+            display = "";
             vb = Double(currentLabel.text!)!
             
             if (currentOperator == "+") {
@@ -97,7 +97,10 @@ class ViewController: UIViewController {
             currentOperator = b
             currentLabel.text = currentOperator
             
-        } else {
+         } else if (currentOperator == "" && display == "") {
+            return;
+         } else {
+            display = "";
             currentOperator = b
             if (lastNumberLabel.text != "") {
                 va = Double(lastNumberLabel.text!)!
