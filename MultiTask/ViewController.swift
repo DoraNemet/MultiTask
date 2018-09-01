@@ -41,7 +41,11 @@ class ViewController: UIViewController {
             vb = 0.0
             lastNumberLabel.text = ""
         }
-        display += String(sender.tag)
+        if (sender.tag == 20) {
+            display += "."
+        } else {
+            display += String(sender.tag)
+        }
         currentLabel.text = display
     }
     
