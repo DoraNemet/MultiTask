@@ -84,7 +84,6 @@ class ViewControllerRed: UIViewController, UITextFieldDelegate, UITableViewDeleg
         }
     }
     
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete{
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
