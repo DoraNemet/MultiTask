@@ -47,12 +47,12 @@ class ViewControllerBlue: UIViewController {
     func calculateOthers() {
         if(fuelPriceNumber != 0 && fuelConsumptionNumber != 0 && distanceNumber != 0) {
             tripPriceNumber = ((distanceNumber * (fuelConsumptionNumber / 100) * fuelPriceNumber) * 100).rounded()/100
-            tripPrice.text = String(tripPriceNumber)
+            tripPrice.text = String(tripPriceNumber).replacingOccurrences(of: ".", with: ",")
         }
         
         if(fuelConsumptionNumber != 0 && distanceNumber != 0) {
             fuelUsedNumber = (distanceNumber * (fuelConsumptionNumber / 100) * 100).rounded()/100
-            fuelUsed.text = String(fuelUsedNumber)
+            fuelUsed.text = String(fuelUsedNumber).replacingOccurrences(of: ".", with: ",")
         }
         
         if( fuelPriceNumber == 0) {

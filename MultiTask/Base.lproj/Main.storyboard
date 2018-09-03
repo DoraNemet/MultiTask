@@ -539,7 +539,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2j-xp-jdl">
                                 <rect key="frame" x="223" y="211" width="70" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" label="Price"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Price"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -547,7 +547,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D52-qb-PUX">
                                 <rect key="frame" x="223" y="245" width="70" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" label="FuelUsed"/>
+                                <accessibility key="accessibilityConfiguration" identifier="FuelUsed"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -590,6 +590,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="Zhu-O6-qK1"/>
         <segue reference="pSf-DT-ExR"/>
-        <segue reference="vOz-AS-pFp"/>
+        <segue reference="GUV-Zj-HUI"/>
     </inferredMetricsTieBreakers>
 </document>
